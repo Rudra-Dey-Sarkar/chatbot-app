@@ -9,36 +9,30 @@ import { useRouter } from 'next/navigation';
 type CompanyDataType = [{
     userId: string,
     name: string,
-    url: string,
+    title: string,
     description: string,
-    icon: string,
+    url: string,
+    logo: string,
     image: string,
-    provider: string,
 }]
 async function Scrap(getValues: UseFormGetValues<CompanyDataType[0]>, setValue: UseFormSetValue<CompanyDataType[0]>, setDescription: React.Dispatch<React.SetStateAction<boolean>>) {
     setDescription(true);
     const url = getValues("url");
-    console.log("The URL :-", url);
+
     try {
-        const response = await fetch('/api/scrap', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ url: url })
-        })
+        const response = await fetch(`https://api.microlink.io/?url=${encodeURIComponent(typeof url ==="string" ? url : "")}`);
         const data = await response.json();
-        if (data?.status === 200) {
-            setValue("description", data?.message?.description);
-            setValue("image", data?.message?.image);
-            setValue("icon", data?.message?.icon);
-            setValue("provider", data?.message?.provider);
+        if (response.ok) {
+            setValue("title", data?.data?.tilte);
+            setValue("description", data?.data?.description);
+            setValue("image", data?.data?.image?.url);
+            setValue("logo", data?.data?.logo?.url);
         } else {
-            console.log(data?.message);
+            console.log("Cannot scrap company data");
         }
         setDescription(false);
     } catch (error) {
-        console.log("Cannot send the data due to :-", error);
+        console.log("Cannot proceed to send the url due to :-", error);
         setDescription(false);
     }
 }
@@ -56,15 +50,15 @@ async function RegisterCompany(data: CompanyDataType[0], setIsRegistered: React.
         if (resData?.status === 200) {
             setIsRegistered(resData?.message?.[0]);
             toast.success("Company Registered Successfully");
-            window.setTimeout(()=>{
+            window.setTimeout(() => {
                 setProgress(true);
-                }, 10000)
+            }, 10000)
         } else {
             toast.error("Cannot Register Company");
             console.log(resData?.message);
         }
     } catch (errors) {
-        console.log("Cannot Proceed To Register User Due To :-", errors);
+        console.log("Cannot Proceed To Register Company Due To :-", errors);
         toast.error("Cannot Register Company");
     }
 }
@@ -90,11 +84,11 @@ function AddCompany() {
         defaultValues: {
             userId: "",
             name: "",
-            url: "",
+            title: "",
             description: "",
-            icon: "",
+            url: "",
+            logo: "",
             image: "",
-            provider: "",
         }
     });
 
@@ -103,7 +97,7 @@ function AddCompany() {
         <div className='flex w-full h-[100vh] justify-center items-center'>
             {isRegistered === undefined ?
                 <form
-                    onSubmit={handleSubmit((data) => RegisterCompany(data, setIsRegistered, setProgress) )}
+                    onSubmit={handleSubmit((data) => RegisterCompany(data, setIsRegistered, setProgress))}
                     className='grid gap-y-2 w-fit h-fit border-2 border-gray-300 p-3 rounded-[10px] m-auto'>
                     <label htmlFor="email">Enter Company Name :-</label>
                     <input
@@ -155,9 +149,9 @@ function AddCompany() {
                             className={`border-4 border-gray-500 p-3 w-full rounded-[10px] font-semibold hover:bg-gray-200`}
                             onClick={() => setView(true)}>View Page 2 Data</button>}
                     </div>
-                    <button 
-                    className='border-4 border-gray-300 bg-green-300 p-2 rounded-full font-semibold m-auto text-gray-700'
-                    onClick={()=>router.push("/dashboard")}>Go To Dashboard</button>
+                    <button
+                        className='border-4 border-gray-300 bg-green-300 p-2 rounded-full font-semibold m-auto text-gray-700'
+                        onClick={() => router.push("/dashboard")}>Go To Dashboard</button>
                 </div>
             }
             {view === true &&

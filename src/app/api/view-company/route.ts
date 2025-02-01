@@ -6,11 +6,11 @@ import { ConnectDB } from "../../../../actions/db";
 const companySchema = new mongoose.Schema({
     userId: String,
     name: String,
-    url: String,
+    title: String,
     description: String,
-    icon: String,
+    url: String,
+    logo: String,
     image: String,
-    provider: String,
 }, { collection: 'companies' });
 
 const companyModel = mongoose.models.companies || mongoose.model('companies', companySchema);

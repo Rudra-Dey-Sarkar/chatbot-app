@@ -4,11 +4,11 @@ import React from 'react'
 type CompanyDataType = [{
     userId: string,
     name: string,
-    url: string,
+    title: string,
     description: string,
-    icon: string,
+    url: string,
+    logo: string,
     image: string,
-    provider: string,
 }]
 
 function ViewCompanyDetails({ isRegistered, setView }: { isRegistered: CompanyDataType[0] | undefined, setView: React.Dispatch<React.SetStateAction<boolean>> }) {
@@ -28,11 +28,11 @@ function ViewCompanyDetails({ isRegistered, setView }: { isRegistered: CompanyDa
                         alt="Company Image"
                         className='w-[200px] my-5' />
                     <p className='font-semibold'>Company Name :- {isRegistered?.name}</p>
-                    <p className='font-semibold'>Company URL :- {isRegistered?.url}</p>
+                    <p className='font-semibold'>Company Provider :- {isRegistered?.title}</p>
                     <p className='font-semibold'>Company Description :- {isRegistered?.description}</p>
-                    <p className='font-semibold'>Company Icon :- {isRegistered?.icon}</p>
+                    <p className='font-semibold'>Company URL :- {isRegistered?.url}</p>
+                    <p className='font-semibold'>Company Icon :- {isRegistered?.logo}</p>
                     <p className='font-semibold'>Company Image :- {isRegistered?.image}</p>
-                    <p className='font-semibold'>Company Provider :- {isRegistered?.provider}</p>
                 </div>
             </div>
 
