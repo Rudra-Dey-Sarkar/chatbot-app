@@ -12,7 +12,7 @@ export const POST = async (req: NextRequest) => {
             console.log("Scrap Response :-", response);
             return NextResponse.json({ status: 200, message: response });
         } catch (error) {
-            console.log("Backend Test 2")
+            console.log("Backend Test 2", error);
             return NextResponse.json({ status: 400, message: error });
         }
     } else {
