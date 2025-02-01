@@ -21,11 +21,11 @@ export const POST = async (req: NextRequest) => {
     const allData = {
         userId: data?.userId,
         name: data?.name,
+        title: data?.title,
+        description: data?.description,
         url: data?.url,
-        description: data?.url,
-        icon: data?.icon,
+        logo: data?.logo,
         image: data?.image,
-        provider: data?.provider,
     }
 
     try {

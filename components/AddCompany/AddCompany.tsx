@@ -134,7 +134,11 @@ function AddCompany() {
                 </form>
                 :
                 <div className='grid border-2 border-gray-500 gap-y-2 w-fit h-fit p-5 rounded-[10px] '>
-                    <p className='text-[25px] font-bold underline'>Chatbot Training</p>
+                    <p className='text-[25px] text-center font-bold underline'>Chatbot Training :-</p>
+
+                    <label htmlFor="purpose" className='font-semibold text-[1.1rem] text-green-500 animate-pulse animate-alternate'>Chatbot is being trained with scraped datas</label>
+                    <div className='grid border-2 border-gray-500 gap-y-2 w-fit h-fit p-5 rounded-[10px] m-auto'>
+
                     <p className='text-[20px] font-semibold'>Detected 2 Pages !</p>
                     <p className={`font-semibold text-red-500 ${progress === false ? "animate-pulse animate-alternate" : ""} `}>Scraping Page Data In Progress</p>
                     {progress === false ? <button
@@ -148,6 +152,7 @@ function AddCompany() {
                         {progress === true && <button
                             className={`border-4 border-gray-500 p-3 w-full rounded-[10px] font-semibold hover:bg-gray-200`}
                             onClick={() => setView(true)}>View Page 2 Data</button>}
+                    </div>
                     </div>
                     <button
                         className='border-4 border-gray-300 bg-green-300 p-2 rounded-full font-semibold m-auto text-gray-700'
