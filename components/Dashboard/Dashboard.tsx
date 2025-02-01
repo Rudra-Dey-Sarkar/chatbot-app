@@ -17,12 +17,13 @@ type UserDataTypes = [{
 type CompanyDataType = [{
     userId: string,
     name: string,
-    url: string,
+    title: string,
     description: string,
-    icon: string,
+    url: string,
+    logo: string,
     image: string,
-    provider: string,
 }]
+
 async function ViewCompany(userId: string, setCompanies: React.Dispatch<React.SetStateAction<any[] | CompanyDataType>>) {
     try {
         const response = await fetch("/api/view-company", {
