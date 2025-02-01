@@ -18,6 +18,7 @@ type CompanyDataType = [{
 async function Scrap(getValues: UseFormGetValues<CompanyDataType[0]>, setValue: UseFormSetValue<CompanyDataType[0]>, setDescription: React.Dispatch<React.SetStateAction<boolean>>) {
     setDescription(true);
     const url = getValues("url");
+    console.log("The URL :-", url);
     try {
         const response = await fetch('/api/scrap', {
             method: 'POST',
