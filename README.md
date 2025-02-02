@@ -1,7 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 # I Build This App As A Full Stack App 
-I build this app as full stack although the requirement was to only for frontend, anyways
+I build this app as full stack app, although the requirement was to only for frontend, anyways
 almost all the features works in real including, email system, chatbot, login, logout, register, add company, scrap company detalis, remove company, etc.
 
 ## Tech Stack Used
