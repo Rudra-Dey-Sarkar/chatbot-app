@@ -23,7 +23,7 @@ async function Scrap(getValues: UseFormGetValues<CompanyDataType[0]>, setValue: 
         const response = await fetch(`https://api.microlink.io/?url=${encodeURIComponent(typeof url ==="string" ? url : "")}`);
         const data = await response.json();
         if (response.ok) {
-            setValue("title", data?.data?.tilte);
+            setValue("title", data?.data?.title);
             setValue("description", data?.data?.description);
             setValue("image", data?.data?.image?.url);
             setValue("logo", data?.data?.logo?.url);
@@ -37,6 +37,7 @@ async function Scrap(getValues: UseFormGetValues<CompanyDataType[0]>, setValue: 
     }
 }
 async function RegisterCompany(data: CompanyDataType[0], setIsRegistered: React.Dispatch<React.SetStateAction<CompanyDataType[0] | undefined>>, setProgress: React.Dispatch<React.SetStateAction<boolean>>) {
+    console.log(data);
     try {
         const response = await fetch("/api/register-company", {
             method: "POST",

@@ -50,7 +50,6 @@ function ControlLogout(setPresent: any, router: any) {
     setPresent(false);
     router.push("/")
 }
-
 function Dashboard() {
     const { present, setPresent }: any = useContext(GlobalContext)
     const [user, setUser] = useState<UserDataTypes | undefined>(undefined);
@@ -85,7 +84,7 @@ function Dashboard() {
                         {companies?.map((company: CompanyDataType[0], index: number) =>
                             <div key={index}>
                                 <button
-                                    className='p-2 border-b-2 border-gray-300 w-full text-start font-semibold hover:bg-gray-200'
+                                    className='p-2 border-b-2 border-gray-300 w-full text-[15px] text-start font-semibold hover:bg-gray-200'
                                     onClick={() => {
                                         setIsRegistered(company);
                                         setView(true);

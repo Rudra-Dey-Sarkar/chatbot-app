@@ -27,7 +27,7 @@ export const POST = async (req: NextRequest) => {
         logo: data?.logo,
         image: data?.image,
     }
-
+    
     try {
         const response = await companyModel.find({ url: data?.url });
 
