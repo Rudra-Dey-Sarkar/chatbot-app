@@ -1,5 +1,29 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+# I Build This App As Full Stack App 
+I build this app as full stack although the requirement was to only for frontend, anyways
+almost all the features works in real including, email system, chatbot, login, logout, register, add company, scrap company detalis, remove company, etc.
+
+## Tech Stack Used
+
+Frontend :- Next.js with Typescript and Tailwind CSS for styling and responsiveness.
+Backend :- Next.js Route Backend.
+Database :- MongoDB Atlas.
+Deployment :- Vercel.
+
+## Links
+Github Link :- https://github.com/Rudra-Dey-Sarkar/chatbot-app.git
+Deployed Link :- https://chatbot-app-kohl.vercel.app/
+Video Link :- 
+
+## Contacts
+In case you have any doubts you can contact me using below details :-
+Email Id :- rudradeysarkar5@gmail.com
+Contact Number :- +917811914148
+Whatsapp Number :- +919475204453
+LinkedIn :- https://www.linkedin.com/in/rudra-dey-sarkar-5625331ba/
+
+
 ## Getting Started
 
 First, run the development server:
