@@ -92,9 +92,9 @@ function ViewCompanyDetails({ isRegistered, setView }: { isRegistered: CompanyDa
 
     const { register, handleSubmit, formState: { errors } } = form;
     return (
-        <div className='bg-white p-5 pb-14 rounded-[10px]'>
-            <div>
-                <div className='flex gap-x-4 justify-between sm:items-center items-start border-b-2 border-gray-300 pb-2'>
+        <div className='bg-white p-5 pb-2  rounded-[10px]'>
+            <div className='pt-5'>
+                <div className='flex gap-x-4 justify-between sm:items-center items-center border-b-2 border-gray-300 pb-2'>
                     <p className='text-[25px] font-bold underline'>Company Details :-</p>
                     <div className='sm:flex grid justify-center items-center gap-x-2 gap-y-1'>
                         <button onClick={() => {

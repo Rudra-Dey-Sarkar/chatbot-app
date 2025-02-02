@@ -26,7 +26,7 @@ function Main() {
                     </div>
                 </div>
             }
-            <div className='grid justify-center items-center gap-y-7'>
+            <div className='grid justify-center items-center gap-y-7 px-2'>
                 <div>
                     <p className='text-[2.5rem] font-semibold'>Make Your Platform Smart</p>
                     <p className='text-center font-semibold flex gap-x-2 justify-center items-center'>Integrate our smart Chatbot to your platform               <svg
