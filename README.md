@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-# I Build This App As Full Stack App 
+# I Build This App As A Full Stack App 
 I build this app as full stack although the requirement was to only for frontend, anyways
 almost all the features works in real including, email system, chatbot, login, logout, register, add company, scrap company detalis, remove company, etc.
 
@@ -14,7 +14,7 @@ Deployment :- Vercel.
 ## Links
 Github Link :- https://github.com/Rudra-Dey-Sarkar/chatbot-app.git
 Deployed Link :- https://chatbot-app-kohl.vercel.app/
-Video Link :- 
+Video Link :- https://www.loom.com/share/7e5251aeec1a49da8e276a1845034354
 
 ## Contacts
 In case you have any doubts you can contact me using below details :-
