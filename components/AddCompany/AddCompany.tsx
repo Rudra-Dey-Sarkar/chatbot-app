@@ -37,7 +37,6 @@ async function Scrap(getValues: UseFormGetValues<CompanyDataType[0]>, setValue: 
     }
 }
 async function RegisterCompany(data: CompanyDataType[0], setIsRegistered: React.Dispatch<React.SetStateAction<CompanyDataType[0] | undefined>>, setProgress: React.Dispatch<React.SetStateAction<boolean>>) {
-    console.log(data);
     try {
         const response = await fetch("/api/register-company", {
             method: "POST",
@@ -143,7 +142,7 @@ function AddCompany() {
                     <p className='text-[20px] font-semibold'>Detected 2 Pages !</p>
                     <p className={`font-semibold text-red-500 ${progress === false ? "animate-pulse animate-alternate" : ""} `}>Scraping Page Data In Progress</p>
                     {progress === false ? <button
-                        className={`border-4 border-gray-500 p-3 w-full rounded-[10px] font-semibold hover:bg-gray-200`}>Page 1 Data is Scraping</button> : <p
+                        className={`border-4 border-gray-500 p-3 w-full rounded-[10px] font-semibold bg-gray-300 ${progress === false ? "animate-pulse animate-alternate" : ""} hover:bg-gray-200`}>Page 1 Data is Scraping</button> : <p
                             className="font-semibold">0 Pages</p>}
                     <p className='font-semibold text-green-500 '>Scraped Data Page Successfully</p>
                     <div className='grid gap-y-2'>
