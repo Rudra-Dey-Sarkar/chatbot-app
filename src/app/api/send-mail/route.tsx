@@ -3,8 +3,10 @@ import fetch from 'node-fetch';
 
 export const POST = async (req: NextRequest) => {
     const datas = await req.json();
-    const { to } = datas;
+    const { to, mail, subject } = datas;
+    
 
+    console.log(datas);
 
     try {
         const response = await fetch('https://api.brevo.com/v3/smtp/email', {
@@ -16,8 +18,8 @@ export const POST = async (req: NextRequest) => {
             body: JSON.stringify({
                 sender: { name: "Rudra Dey Sarkar", email: "rudradeysarkar2002@gmail.com" },
                 to: [{ email: to }],
-                subject: "Account Verification OTP",
-                htmlContent: `<p>OTP is:- 123</p>`,
+                subject: subject,
+                htmlContent: `<p>${mail}</p>`,
             }),
         });
 

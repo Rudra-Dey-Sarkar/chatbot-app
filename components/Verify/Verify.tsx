@@ -13,12 +13,15 @@ type OtpDataType = {
 
 async function SendOTP(verified: string, setOtpBox: React.Dispatch<React.SetStateAction<boolean>>) {
     try {
-        const response = await fetch("api/send-otp", {
+        const response = await fetch("api/send-mail", {
             method: "POST",
             headers: {
                 "Content-Type": "application-json"
             },
-            body: JSON.stringify({ to: verified })
+            body: JSON.stringify({ 
+                to: verified,
+                mail:"OTP is:- 123"
+             })
         })
 
         const data = await response.json();
@@ -38,6 +41,7 @@ async function ControlOTP(data:OtpDataType, router:any, verified:string){
     if(data.otp==="123"){
         const datas = {
             email:verified,
+            subject:"Account Verification OTP",
             verified:true
         }
         const response = await fetch("api/verify-user",{
