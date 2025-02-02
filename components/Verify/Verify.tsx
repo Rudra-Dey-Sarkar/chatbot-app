@@ -7,8 +7,7 @@ import { useRouter } from 'next/navigation'
 import {setCookie} from 'cookies-next'
 
 type OtpDataType = {
-
-    otp: string
+    otp: string,
 }
 
 async function SendOTP(verified: string, setOtpBox: React.Dispatch<React.SetStateAction<boolean>>) {
@@ -18,10 +17,11 @@ async function SendOTP(verified: string, setOtpBox: React.Dispatch<React.SetStat
             headers: {
                 "Content-Type": "application-json"
             },
-            body: JSON.stringify({ 
+            body: JSON.stringify({
                 to: verified,
-                mail:"OTP is:- 123"
-             })
+                mail: "Your OTP Is :- 123",
+                subject: "Account Verifiction OTP"
+            })
         })
 
         const data = await response.json();
