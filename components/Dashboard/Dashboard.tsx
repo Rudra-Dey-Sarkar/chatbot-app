@@ -46,7 +46,7 @@ async function ViewCompany(userId: string, setCompanies: React.Dispatch<React.Se
         console.log("Cannot Proceed To View Company Data Due To :-", errors);
     }
 }
-async function RemoveCompany(Id: string, removeCompany: boolean, setRemoveCompany: React.Dispatch<React.SetStateAction<boolean>>) {
+async function RemoveCompany(Id: string, companies: any[] | CompanyDataType, setCompanies: React.Dispatch<React.SetStateAction<any[] | CompanyDataType>>) {
     try {
         const response = await fetch("/api/remove-company", {
             method: "DELETE",
@@ -58,11 +58,7 @@ async function RemoveCompany(Id: string, removeCompany: boolean, setRemoveCompan
 
         const resData = await response.json();
         if (resData?.status === 200) {
-            if(removeCompany===false){
-                setRemoveCompany(true);
-            }else{
-                setRemoveCompany(false);
-            }
+            setCompanies(companies.filter(company => company._id !== Id));
             toast.success("Company Removed");
         } else {
             toast.error("Cannot Remove Company");
@@ -88,15 +84,17 @@ function Dashboard() {
     const [companies, setCompanies] = useState<CompanyDataType | any[]>([]);
 
     useEffect(() => {
+        console.log("Render");
         const cookies = getCookie("user");
         if (cookies !== undefined && typeof cookies === "string") {
             const userCookies = JSON.parse(cookies);
             setUser(userCookies);
             ViewCompany(userCookies?.[0]?.email, setCompanies);
         } else {
+            setCompanies([]);
             console.log("No User Details Available");
         }
-    },[removeCompany]);
+    },[]);
 
     return (
         <div className='grid w-full h-[100vh]'>
@@ -119,7 +117,7 @@ function Dashboard() {
                                         setView(true);
                                     }}>{company.name}</button>
                                 <button
-                                    onClick={() => RemoveCompany(company?._id, removeCompany, setRemoveCompany)}
+                                    onClick={() => RemoveCompany(company?._id, companies, setCompanies)}
                                     className='p-2 border-b-2 border-gray-300 text-[15px] text-start font-semibold hover:bg-gray-200'><svg
                                         fill="#ff0000"
                                         id="Capa_1"
