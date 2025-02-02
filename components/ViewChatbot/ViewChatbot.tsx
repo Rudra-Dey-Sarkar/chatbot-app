@@ -96,7 +96,7 @@ function ViewChatbot() {
         className="w-full h-[100vh]"
       ></iframe>
 
-      <div className={`absolute w-fit h-fit ${chatbot === false ? "top-[73%]" : "top-[36%]"} right-10 text-white`}>
+      <div className={`absolute w-fit h-fit ${chatbot === false ? "top-[75%]" : "top-[36%]"} right-0 text-white`}>
         <div className='relative'>
 
           {chatbot === true &&
