@@ -54,10 +54,10 @@ function ControlTestIntegration(router: AppRouterInstance) {
     if (cookies !== undefined && typeof cookies === "string") {
         if (cookies === "1") {
             setCookie("case", "2");
-            router.push("/test-integration/1")
+            router.push("/test-integration/2")
         } else {
             setCookie("case", "1");
-            router.push("/test-integration/2")
+            router.push("/test-integration/1")
         }
     } else {
         setCookie("case", "1");
