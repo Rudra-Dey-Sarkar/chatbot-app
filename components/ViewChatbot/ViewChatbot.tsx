@@ -44,7 +44,11 @@ async function Query(data: PromptDataType, visit: CompanyDataType[0] | undefined
     }
   );
   const result = await response.json();
-  setAnswers((answers) => [...answers, result.answer]);
+  if(response.ok){
+    setAnswers((answers) => [...answers, result.answer]);
+  }else{
+    toast.error("Cannot Talk To Chatbot");
+  }
 }
 
 function ViewChatbot() {
