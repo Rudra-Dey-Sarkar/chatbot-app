@@ -1,4 +1,5 @@
 "use client"
+import { setCookie } from 'cookies-next';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast';
@@ -23,6 +24,7 @@ async function RegisterUser(data: UserDataTypes[0], setIsActive: any, setVerifie
 
             const resData = await response.json();
             if (resData?.status === 200) {
+                setCookie("user", resData.message);
                 setIsActive(true);
                 toast.success("User Registered Successfully, Please Verify Your Account");
                 setVerified(resData?.message?.[0]?.email);
