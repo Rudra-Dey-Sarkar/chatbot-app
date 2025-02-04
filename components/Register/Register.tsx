@@ -45,6 +45,7 @@ async function RegisterUser(data: UserDataTypes[0], setIsActive: any, setVerifie
 
 function Register({ setVerified, setLogReg }: { setVerified: React.Dispatch<React.SetStateAction<string>>, setLogReg: React.Dispatch<React.SetStateAction<boolean>> }) {
     const [isActive, setIsActive] = useState<boolean>(false);
+    const loader = require("@/app/loader.gif");
     const form = useForm<UserDataTypes[0]>({
         defaultValues: {
             name: "",
@@ -57,8 +58,10 @@ function Register({ setVerified, setLogReg }: { setVerified: React.Dispatch<Reac
     return (
         <form
             onSubmit={handleSubmit((data) => RegisterUser(data, setIsActive, setVerified))}
-            className='grid gap-y-2 w-fit h-fit border-2 border-gray-300 p-3 rounded-[10px] m-auto '>
-
+            className='relative grid gap-y-2 w-fit h-fit border-2 border-gray-300 p-3 rounded-[10px] m-auto '>
+            <div className='flex fixed inset-0 w-full h-full justify-center items-center bg-black bg-opacity-50 z-50'>
+                <p className='text-[25px] text-white font-semibold'>Loading.....</p>
+            </div>
             <label htmlFor="name">Enter Name :-</label>
             <input
                 type="text"
